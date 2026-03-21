@@ -6,47 +6,47 @@ A comprehensive Python course covering fundamental concepts and data structures.
 
 This repository contains educational materials organized by topic:
 
-### 1. **conditionals.pdf** (4.1 MB)
+### 1. **conditionals.pdf** 
    - **Description**: Covers conditional statements in Python (if, elif, else)
    - **Topics**: Boolean logic, comparison operators, nested conditions, ternary operators
    - **Purpose**: Learn how to control program flow with decision-making statements
 
-### 2. **Loops.pdf** (5.6 MB)
+### 2. **Loops.pdf** 
    - **Description**: Comprehensive guide to loop structures in Python
    - **Topics**: for loops, while loops, loop control (break, continue), nested loops
    - **Purpose**: Master iteration and repetitive operations
 
-### 3. **STRINGS.pdf** (1.2 MB)
+### 3. **STRINGS.pdf** 
    - **Description**: Introduction to string data type and operations
    - **Topics**: String creation, concatenation, methods, formatting, immutability
    - **Purpose**: Understand string manipulation and text processing
 
-### 4. **STRING- INDEX, Slice.pdf** (870 KB)
+### 4. **STRING- INDEX, Slice.pdf** 
    - **Description**: Deep dive into string indexing and slicing
    - **Topics**: Indexing, slicing syntax, step values, negative indices
    - **Purpose**: Master advanced string access techniques
 
-### 5. **Basics of List.pdf** (1.5 MB)
+### 5. **Basics of List.pdf** 
    - **Description**: Fundamentals of Python lists
    - **Topics**: List creation, indexing, slicing, list methods (append, extend, insert, remove)
    - **Purpose**: Learn the most commonly used data structure in Python
 
-### 6. **TUPLES.pdf** (785 KB)
+### 6. **TUPLES.pdf** 
    - **Description**: Understanding immutable sequences
    - **Topics**: Tuple creation, unpacking, advantages over lists, tuple methods
    - **Purpose**: Learn when and how to use tuples effectively
 
-### 7. **Dictionary.pdf** (1.8 MB)
+### 7. **Dictionary.pdf** 
    - **Description**: Key-value pair data structures
    - **Topics**: Dictionary creation, access, methods, iteration, nested dictionaries
    - **Purpose**: Master dictionaries for storing and organizing data
 
-### 8. **Set and frozenset.pdf** (3.1 MB)
+### 8. **Set and frozenset.pdf**
    - **Description**: Unordered collection types and set operations
    - **Topics**: Set creation, operations (union, intersection, difference), frozensets
    - **Purpose**: Learn set theory and unique element handling
 
-### 9. **Operator overloading and bytearray in python.pdf** (741 KB)
+### 9. **Operator overloading and bytearray in python.pdf** 
    - **Description**: Advanced Python concepts
    - **Topics**: Operator overloading, magic methods, bytearray usage
    - **Purpose**: Understand advanced features for custom object behavior
