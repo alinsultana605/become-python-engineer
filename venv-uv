@@ -1,0 +1,65 @@
+# Ghid Rapid: venv vs. uv (Medii Virtuale în Python)
+
+Acest document explică pe scurt diferențele dintre unealta clasică Python (`venv`) și alternativa modernă (`uv`), pentru a te ajuta să alegi fluxul de lucru potrivit pentru proiectul tău.
+
+---
+
+## De ce avem nevoie de medii virtuale?
+Un mediu virtual este o **cutie izolată** pentru proiectul tău. Acesta previne conflictele dintre versiunile de librării. Dacă Proiectul A are nevoie de o versiune veche a unei librării, iar Proiectul B are nevoie de versiunea nouă, mediile virtuale le permit să coexiste pe același calculator fără să se bată în cap.
+
+---
+
+## 1. venv (Clasicul din fabrică)
+Este unealta oficială inclusă în Python. Vine preinstalată, deci nu necesită download suplimentar.
+
+* **Cum funcționează:** Creează un folder local (de obicei numit `.venv`) unde copiază executabilul Python și managerul de pachete `pip`.
+* **Dezavantaj:** Este relativ lent la crearea mediului și la instalarea pachetelor mari de pe internet.
+
+## 2. uv (Racheta scrisă în Rust)
+Este o unealtă modernă dezvoltată de Astral (creatorii *Ruff*), scrisă în **Rust**. Este gândită ca un înlocuitor extrem de rapid pentru `venv`, `pip` și alte unelte de management.
+
+* **De ce e specială:** Este de **10 până la 100 de ori mai rapidă** decât `venv` + `pip`.
+* **Sistem de Cache Inteligent:** Dacă o librărie a fost descărcată o dată pe PC-ul tău, `uv` o instalează instant în alte proiecte folosind legături rapide (hardlinks), fără să o mai descarce de pe internet.
+* **Bonus:** Poate descărca și gestiona automat chiar și versiunile de Python (ex: rulează un proiect cu Python 3.12 chiar dacă nu îl ai instalat în sistem).
+
+---
+
+## Comparație Directă
+
+| Caracteristică | `venv` (+ `pip`) | `uv` |
+| :--- | :--- | :--- |
+| **Viteză** | Normală (secunde/minute) | Ultra-rapidă (milisecunde) |
+| **Instalare** | Vine direct cu Python | Necesită instalare separată (`pip install uv`) |
+| **Limbaj** | Python | Rust |
+| **Funcționalități** | Doar izolare mediu | Medii, instalare pachete, management versiuni Python |
+
+---
+
+## Cheat Sheet: Comenzi Rapide
+
+Iată cum se fac aceleași operațiuni în ambele variante:
+
+### Varianta Clasică (`venv`)
+```bash
+# 1. Creare mediu virtual
+python -m venv .venv
+
+# 2. Activare mediu (Linux/macOS)
+source .venv/bin/activate
+# Pe Windows (PowerShell): .venv\Scripts\Activate.ps1
+
+# 3. Instalare pachete
+pip install requests
+
+Varianta Modernă (uv)
+# 1. Creare mediu virtual (instantanis)
+uv venv
+
+# 2. Activare mediu (Linux/macOS)
+source .venv/bin/activate
+# Pe Windows (PowerShell): .venv\Scripts\Activate.ps1
+
+# 3. Instalare pachete (la viteză maximă)
+uv pip install requests
+
+💡 Recomandare: Folosește venv pentru scripturi rapide pe calculatoare unde nu poți instala unelte noi. Folosește uv în dezvoltarea de zi cu zi pentru a economisi timp prețios la instalarea dependențelor.
