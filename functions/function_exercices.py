@@ -387,3 +387,18 @@ def suma_lista(lista):
     for numar in lista:
         suma += numar 
     return suma
+
+def maxim_lista(lista):
+    maxim = lista[0]
+    for numar in lista:
+        if numar > maxim:
+            maxim = numar
+    return maxim
+
+def numara_vocale(text):
+    vocale = "aeiouAEIOU"
+    count = 0
+    for litera in vocale:
+        if litera in vocale:
+            count +=1
+    return count
