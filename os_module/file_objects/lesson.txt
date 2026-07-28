@@ -1,0 +1,116 @@
+📘 1. Deschiderea fișierelor — funcția open()
+În Python, lucrul cu fișiere începe cu funcția:
+
+python
+open(file, mode)
+🔹 Cele mai folosite mode-uri:
+Mode	Ce face
+"r"	read — citește (fișierul trebuie să existe)
+"w"	write — scrie (șterge conținutul existent)
+"a"	append — adaugă la final
+"r+"	read + write
+"w+"	write + read (șterge tot)
+"a+"	append + read
+
+
+📘 2. Citirea fișierelor
+✔ Citire completă
+python
+with open("data.txt", "r") as f:
+    content = f.read()
+    print(content)
+✔ Citire linie cu linie
+python
+with open("data.txt", "r") as f:
+    for line in f:
+        print(line, end="")
+✔ Citire în listă
+python
+with open("data.txt", "r") as f:
+    lines = f.readlines()
+📘 3. Scrierea în fișiere
+✔ Suprascriere (w)
+python
+with open("data.txt", "w") as f:
+    f.write("Salut, Sultana!\n")
+✔ Adăugare (a)
+python
+with open("data.txt", "a") as f:
+    f.write("Linie nouă.\n")
+📘 4. De ce folosim with open()?
+Corey insistă pe asta:
+
+🔥 with = context manager
+Avantaje:
+
+închide fișierul automat
+
+previne scurgerile de resurse
+
+previne erorile dacă apare o excepție
+
+Fără with, trebuie să faci:
+
+python
+f = open("data.txt", "r")
+# ...
+f.close()
+Cu with, Python face asta automat.
+
+📘 5. Lucrul cu căi (paths)
+Corey folosește os.path, dar azi se recomandă pathlib.
+
+✔ Folosind os.path.join
+python
+import os
+path = os.path.join("folder", "data.txt")
+✔ Folosind pathlib (modern)
+python
+from pathlib import Path
+
+p = Path("folder") / "data.txt"
+📘 6. Citirea fișierelor mari
+Pentru fișiere mari, nu folosești read(), ci citești în bucăți:
+
+python
+with open("bigfile.txt", "r") as f:
+    for line in f:
+        process(line)
+📘 7. Moduri binare (pentru imagini, PDF, etc.)
+✔ Citire binară
+python
+with open("image.png", "rb") as f:
+    data = f.read()
+✔ Scriere binară
+python
+with open("copy.png", "wb") as f:
+    f.write(data)
+📘 8. seek() și tell() — poziția în fișier
+✔ tell() — unde e cursorul
+python
+f.tell()
+✔ seek() — mută cursorul
+python
+f.seek(0)  # la început
+📘 9. Diferența dintre text și binar
+Tip	Mode	Exemplu
+Text	"r", "w"	fișiere .txt, .csv
+Binar	"rb", "wb"	imagini, PDF, executabile
+
+
+📘 10. Encoding (foarte important!)
+Corey explică că uneori trebuie să specifici encoding-ul:
+
+python
+with open("data.txt", "r", encoding="utf-8") as f:
+    print(f.read())
+🎯 Rezumat rapid
+Concept	Explicație
+open()	deschide fișiere
+with open()	închide automat
+read(), readline(), readlines()	citire
+write(), append()	scriere
+rb, wb	moduri binare
+seek(), tell()	poziția în fișier
+encoding	important pentru caractere speciale
+
